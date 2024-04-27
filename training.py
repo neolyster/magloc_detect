@@ -121,11 +121,11 @@ def run_epoch(epoch, model, dataloader, cuda,num_classes=2, training=False, opti
     for i in range(0,num_classes):
         rate = tmp_classes[i]/total_classes[i]
         print('第',str(i),'类,准确率:',rate.item())
-        str_tmp = '第{.f}类,准确率:'.format(rate.item())
-        logging.debug(str_tmp)
+        # str_tmp = '第{}类,准确率:'.format(rate.item())
+        # logging.debug(str_tmp)
         print('总数为:',total_classes[i])
-        str_tmp = '总数为:{.f}'.format(total_classes[i])
-        logging.debug(str_tmp)
+        # str_tmp = '总数为:{}'.format(total_classes[i])
+        # logging.debug(str_tmp)
     acc = 100 * correct / total
     avg_loss = total_loss / total
     return acc, avg_loss

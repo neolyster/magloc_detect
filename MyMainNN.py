@@ -44,7 +44,7 @@ if __name__ == "__main__":
     num_classes = 13
     filepath1 = './data/0418/0418data0'
     filepath2 = './data/0418/0418data1'
-    logging.basicConfig(filename='example.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(filename='0427.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
     # 路径设置
     dirpathA = './data/0418/0418data0/第0类/'
     dirpathB = './data/0418/0418data0/第1类/'
