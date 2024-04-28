@@ -61,7 +61,7 @@ class data_cut():
         for line in lines:
             elements = line.strip().split()
             for i, element in enumerate(elements):
-                lists[i].append(element)
+                lists[i].append(float(element))
         rows = len(lines)
 
         iters_double = (rows - self.cut)/self.interval
@@ -173,7 +173,7 @@ class data_cut():
 
 
 if __name__ == '__main__':
-    ddCut = data_cut('./data/0418/0418data1.txt', data_col=0,num_classes=13,interval=10, cut=100, label_col=3)
+    ddCut = data_cut('./data/0418/0418data0.txt', data_col=0,num_classes=13,interval=10, cut=100, label_col=3)
     ddCut.cut_data()
 
     # file_path = r"./datacut.py"
