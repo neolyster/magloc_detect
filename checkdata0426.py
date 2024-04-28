@@ -9,7 +9,7 @@ if __name__ == '__main__':
     label = np.loadtxt(filepath)
     filepaths = []
     for root,dirs,files in os.walk(dirpath):
-        for file in files:
+        for file in sorted(files):
             if file.endswith('.txt'):
                 filepaths.append(os.path.join(root,file))  
      
