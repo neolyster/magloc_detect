@@ -47,13 +47,14 @@ class data_cut():
         with open(self.file_path, 'r') as file:
             lines = file.readlines()
         # 初始化列表
-        lists = [[] for _ in range(len(lines[0].split()))]
+        lists = [[] for _ in range(len(lines[0].split())-1)]
         col = len(lines[0].split())
         # 遍历每一行，将每个元素添加到对应的列表中
         for line in lines:
             elements = line.strip().split()
             for i, element in enumerate(elements):
-                lists[i].append(element)
+                if(i>=1):
+                    lists[i-1].append(float(element))
         rows = len(lines)
 
         iters_double = (rows - self.cut)/self.interval
@@ -87,32 +88,32 @@ class data_cut():
             file_name = self.dir_name + '/' + str(i) + '.txt'
             with open(file_name, 'w') as file:
                 for j in range(start_point, start_point + self.cut):
-                    list_x = lists[self.data_col][start_point:start_point+self.cut]
-                    list_y = lists[self.data_col+1][start_point:start_point + self.cut]
-                    list_z = lists[self.data_col+2][start_point:start_point + self.cut]
+                    list_x = lists[self.data_col-1][start_point:start_point+self.cut]
+                    list_y = lists[self.data_col][start_point:start_point + self.cut]
+                    list_z = lists[self.data_col+1][start_point:start_point + self.cut]
                     max_x = max(list_x)
                     min_x = min(list_x)
                     max_y = max(list_y)
                     min_y = min(list_y)
                     max_z = max(list_z)
                     min_z = min(list_z)
-                    for k in range(self.data_col, col ):
+                    for k in range(0, 3 ):
                         tmp_num = lists[k][j]
-                        if (k == self.data_col):
+                        if (k == 0):
                             max_data = max_x
                             min_data = min_x
-                        if (k == self.data_col+1):
+                        if (k == 1):
                             max_data = max_y
                             min_data = min_y
-                        if (k == self.data_col+2):
+                        if (k == 2):
                             max_data = max_z
                             min_data = min_z
                         filnum = (float(tmp_num) - float(min_data))/(float(max_data) - float(min_data))
                         # filnum = float(tmp_num)
-                        if (k == col - 1):
-                            file.write(format(filnum, ".4f") + '\n')
+                        if (k == 2):
+                            file.write(format(filnum, ".8f") + '\n')
                         else:
-                            file.write(format(filnum, ".4f") + ' ')
+                            file.write(format(filnum, ".8f") + ' ')
 
 
 

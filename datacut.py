@@ -165,15 +165,15 @@ class data_cut():
                             min_data = min_z
                         filnum = (float(tmp_num) - float(min_data)) / (float(max_data) - float(min_data))
                         if (k == col - 2):
-                            file.write(format(filnum, ".4f") + '\n')
+                            file.write(format(filnum, ".8f") + '\n')
                         else:
-                            file.write(format(filnum, ".4f") + ' ')
+                            file.write(format(filnum, ".8f") + ' ')
 
 
 
 
 if __name__ == '__main__':
-    ddCut = data_cut('./data/0418/0418data0.txt', data_col=0,num_classes=13,interval=10, cut=100, label_col=3)
+    ddCut = data_cut('./data/0418/0418data1.txt', data_col=0,num_classes=13,interval=10, cut=100, label_col=3)
     ddCut.cut_data()
 
     # file_path = r"./datacut.py"
