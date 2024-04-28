@@ -21,7 +21,7 @@ import math
 from torch.autograd import Variable
 
 if __name__ == '__main__':
-    model = torch.load('./models_save/0426/m-47')
+    model = torch.load('./models_save/0426/m-99')
     model.eval()
     dataset = test_dataset('/home/xq/myClassfier/data/0426/0426USB0')
     save_name = 'USB0.txt'
