@@ -23,8 +23,8 @@ from torch.autograd import Variable
 if __name__ == '__main__':
     model = torch.load('./models_save/0426/m-60')
     model.eval()
-    dataset = test_dataset('/home/xq/myClassfier/data/0426/0426USB1')
-    save_name = 'USB1.txt'
+    dataset = test_dataset('/home/xq/myClassfier/data/0426/0426USB0')
+    save_name = 'USB0.txt'
     logging.basicConfig(filename='test.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
     data_loader = DataLoader(dataset, batch_size=64,shuffle=False)
     for batch in data_loader:
