@@ -10,9 +10,10 @@ class test_dataset(Dataset):
         self.labels = []
         self.file_paths = []
         for root,dirs,files in os.walk(filepath):
-            for file in files:
+            for file in sorted(files):
                 if file.endswith('.txt'):
                     self.file_paths.append(os.path.join(root,file))
+        print('here')
 
     def read_folder_data(self,folder_path):
         for root, dirs, files in os.walk(folder_path):
